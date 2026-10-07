@@ -1,0 +1,15 @@
+services:
+  hasan-yardim:
+    image: node:22-alpine
+    container_name: hasan-yardim
+    working_dir: /app
+    command: node server.js
+    environment:
+      - PORT=3000
+    ports:
+      - "3009:3000"
+    volumes:
+      - ./index.html:/app/index.html:ro
+      - ./server.js:/app/server.js:ro
+      - ./public:/app/public:ro
+    restart: unless-stopped
